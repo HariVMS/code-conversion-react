@@ -1,13 +1,705 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  background-color: #f8f9fe;
+
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  background-color: #f8f9fe;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: smaller;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 150px;
+  font-size: 12px;
+  padding-top: 7px;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #f8fafd;
+  padding: 30px;
+  border-radius: 22px;
+  width: 946px;
+  height: 500px;
+  border: 3px solid #ffff;
+  padding-top: 42px;
+  padding-left: 45px;
+
+}
+#topic{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  text-align: center;
+  gap: 5px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  font-size: 0.80em;;
+  color: white;
+}
+
+.line {
+  width: 209px;
+  position: absolute;
+  left: 40px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+}
+
+.completed .circle,
+.completed .line {
+  background-color: #7468fc;
+  border-color: #d2cffd;
+}
+
+.completed .circle {
+  background-color: #7468fc;
+}
+
+.inner-circle {
+  width: 10px;
+  height: 10px;
+  background-color: #7166f6;
+  border-radius: 50%;
+}
+
+.in-progress .circle {
+  background-color: #e7eafe;
+  color: #8a5cd4;
+  border: 1px solid #d2cffd;
+}
+
+.step-label {
+  color: #b3bec8;
+  padding-top: 11px;
+}
+
+.step-heading {
+  text-align: start;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2b;
+  width: 122px;
+}
+
+.step-status {
+  padding-top: 12px;
+  color: #14ae5c;
+}
+
+.in-progress .step-status {
+  color: #7468fc;
+}
+
+.pending .circle {
+  background-color: #e7eafe;
+  border: 1px solid #d2cffd;
+  color: #999;
+}
+
+.pending .step-status {
+  color: #999;
+}
+
+#change-name {
+  color: #8883bf;
+  padding-top: 34px;
+  font-size: 1.331em;
+  font-weight: 600;
+}
+
+.files>label {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 14px;
+  padding: 11px;
+  padding-bottom: 21px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+.footer {
+  padding: 10px 9px 0px 27px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 116px;
+  height: 45px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+#next {
+  background-color: #978ffd;
+  color: #ffffff;
+}
+
+.custom-file-upload {
+  display: flex;
+  max-width: 394px;
+  height: 45px;
+  width: 100%;
+  border-radius: 9px;
+  background-color: #ffff;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.file-upload-label {
+  border-radius: 12px;
+  padding: 8px;
+  background-color: #9a92fc;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.file-upload-label:hover {
+  background-color: #9a92fc;
+  box-shadow: 0 1px 8px rgba(154, 146, 252, 1);
+}
+
+.file-name-display {
+  flex: 1;
+  padding: 10px;
+  padding-left: 20px;
+  opacity: 68%;
+  color: #555;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.space {
+  padding-left: 33px;
+  padding-bottom: 10px;
+}
+
+.custom-input {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 20px;
+
+
+}
+
+.custom-input>input[type=text] {
+  padding: 10px;
+  opacity: 70%;
+  border-radius: 13px;
+  height: 47px;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  outline: none;
+
+
+}
+
+.hidden {
+  display: none;
+}
+
+.folders {
+  display: flex;
+  height: 100%;
+  gap: 20px;
+  overflow-y: auto;
+
+
+}
+
+.input-lable {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 30px;
+  padding-top: 35px;
+}
+
+.inputboxs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  position: relative;
+}
+
+.inputboxs>input[type=text] {
+  width: 340px;
+  height: 47px;
+  opacity: 70%;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 14px;
+  border-radius: 13px;
+  outline: none;
+
+}
+
+.role {
+  display: flex;
+  gap: 200px;
+}
+
+.role-containter>input[type=text] {
+  padding: 10px;
+  width: 340px;
+  margin-bottom: 29px;
+  opacity: 70%;
+  border-radius: 13px;
+  outline: none;
+  height: 45px;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.role-containter>p {
+  margin-top: -10px;
+
+}
+
+input[type="radio"] {
+  background-color: #7166f6;
+}
+
+/* Hide the default radio input */
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+/* Style the custom radio button */
+.custom-radio {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  width: 20px;
+  /* Adjust size */
+  height: 20px;
+  /* Adjust size */
+  border: 2px solid #d8d5fe;
+  /* Border color and thickness */
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+}
+
+/* Checked state */
+.custom-radio input[type="radio"]:checked+.radio-checkmark {
+  border-color: #a49dfd;
+}
+
+.radio-checkmark::after {
+  content: "";
+  width: 14px;
+  /* Inner circle size */
+  height: 14px;
+  /* Inner circle size */
+  background-color: #7468fc;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+/* Show the inner circle when checked */
+.custom-radio input[type="radio"]:checked+.radio-checkmark::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.n {
+  padding: 1px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  margin-top: -8px
+}
+
+.json-container {
+  height: 100%;
+}
+
+.validate-json {
+  display: grid;
+  column-gap: 8px;
+  grid-template-columns: 200px auto;
+  height: 100%;
+}
+
+.json-files,
+.json-data {
+  border: 2px solid white;
+  background-color: #fafbfe;
+  border-radius: 20px;
+  padding: 20px 0px 0px 13px;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.json-files {
+  padding: 20px 0px 0px 8px;
+}
+
+.json-files {
+  padding-right: 10px;
+  padding-top: 35px;
+}
+
+.json-files>p {
+  color: #bfc8d1;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+#heading-role {
+  padding-top: 13px;
+}
+
+.icon {
+  color: black;
+  font-size: 18px;
+}
+
+.butt {
+  display: flex;
+  gap: 6px;
+  border-radius: 5px;
+  flex-direction: column;
+
+
+}
+.butcontainer{
+  display: flex;
+  gap: 12px;
+  border-radius: 5px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.butcontainer:hover .butt-file {
+  background-color: #edecfe;
+  color: #7468fc;
+}
+
+.butcontainer:hover .icon {
+  color: #7468fc;
+}
+
+.butcontainer:hover {
+  background-color: #edecfe;
+}
+
+.butt-file {
+  border: none;
+  outline: none;
+  text-align: start;
+  background-color: #fafbfe;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.adder {
+  max-height: 294px;
+  overflow: auto;
+}
+
+.icon-delete-button:hover {
+  transition: 0.3s ease;
+  display: contents;
+  cursor: pointer;
+  color: #7166f6;
+  opacity: 40%;
+
+
+}
+
+.icon-delete-button {
+  font-size: 17px;
+  opacity: 10%;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.loading {
+  height: 0;
+  width: 0;
+  padding: 15px;
+  border: 6px solid #edecfe;
+  border-right-color: #7468fc;
+  border-radius: 22px;
+  animation: rotate 1s infinite linear;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+}
+
+@keyframes rotate {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.back {
+  color: #786dfc;
+  cursor: pointer;
+}
+#edit{
+  color: #8176fc;
+  border: 1px solid #8176fc;
+}
+
+#add-role {
+  cursor: pointer;
+  width: 90px;
+  color: #847afc;
+  font-size: smaller;
+}
+
+/* Scrollbar Track */
+/* Scrollbar styles for .adder and .json-data */
+.adder::-webkit-scrollbar,
+.json-data::-webkit-scrollbar {
+  width: 6px;          /* Width of the scrollbar */
+  height: 12px;        /* Height for horizontal scrollbar */
+}
+
+/* Track Background */
+.adder::-webkit-scrollbar-track,
+.json-data::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+  border-radius: 10px; /* Rounding corners */
+}
+
+/* Scrollbar Handle */
+.adder::-webkit-scrollbar-thumb,
+.json-data::-webkit-scrollbar-thumb {
+  background: #ECEFF5; /* Color of the scroll thumb */
+  border-radius: 10px; /* Rounding corners */
+}
+
+/* Handle on Hover */
+.adder::-webkit-scrollbar-thumb:hover,
+.json-data::-webkit-scrollbar-thumb:hover {
+  background: #D0D4DC; /* Darker color on hover */
+}
+
+.json-data::-webkit-scrollbar-track{
+  width:1px;
+  margin: 15px 15px ;
+  background-color:transparent;
+}
+.json .content-container {
+display: flex;
+flex-direction: column;
+gap: 15px;
+background-color: #f3f4fe;
+border: none;
+padding: 10px;
+border-radius: 22px;
+width: 1036px;
+height: 555px;
+}
+
+/* Popup background overlay */
+.popup {
+  position: absolute;
+  top: 12px;
+  left: 36%;
+  width: 626px;
+  z-index: 1000;
+  animation: popIn 1.5s ease forwards;
+}
+
+/* Popup content box */
+.popup-content {
+  background-color: #D4F3DC;
+  border-radius: 8px;
+  width: 83%;
+  display: flex;
+  height: 46px;
+  position: relative;
+  padding-left: 27px;
+  align-items: center;
+  border: 1px solid #d0f2d9;
+  padding: 9px;
+  animation: popIn 0.5s ease forwards;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 7px;
+  right: 19px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #33a852;
+}
+
+
+
+@keyframes popIn {
+  0% {
+      transform: scale(0); /* Start small */
+      opacity: 0; /* Start transparent */
+  }
+  60% {
+      transform: scale(1); /* Slightly larger */
+      opacity: 1; /* Fully visible */
+  }
+  100% {
+      transform: scale(1); /* Set to normal size */
+  }
+}
+
+.tick-icon {
+  animation: bounce 0.6s ease;
+}
+
+/* Bounce keyframe animation */
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+
+#language-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  width: 83%;
+  left: 30px;
+  top: 80px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px rgba(116, 104, 245, 0.5);
+  border: none;
+  padding: 10px;
+  z-index: 998;
+}
+
+#language-dropdown ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#language-dropdown ul li:hover {
+  background-color: #edecfe;
+  color: #7468fc;
+  border-radius: 6px;
+}
+
+.folders > .inputboxs {
+  padding-top: 26px;
+}
+
+#cancel{
+  border: 1px solid #978ffd;
+  color: #978ffd;
+}
+@media screen and (max-width: 1539px){
+  .content-container {
+      height: 357px; /* Set height for .container */
+  }
+
+  .json .content-container {
+      height: 345px; /* Set height for .container inside .json */
+  }
+
+  .loading {
+      position: absolute; /* Ensure position is set for .loading */
+      left: 47%;  /* Position .loading element horizontally */
+      top: 57%;   /* Position .loading element vertically */
+  }
+
+  .popup {
+      position: absolute; /* Ensure position is set for .popup */
+      left: 30%;  /* Position .popup element horizontally */
+  }
+  .custom-input{
+      gap: 9px;
+  }
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+.first>i {
+  font-family: FontAwesome;
+  font-style: normal;
+  color: #33a852;
+  margin-right: 20px;
 }
